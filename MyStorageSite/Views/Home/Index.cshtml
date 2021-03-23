@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MyStorageSite.Models.Product>
+@{
+    Layout = null;
+}
+<!doctype html>
+<html>
+<head>
+    <title>"Storage"</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+    <h1>Hello</h1>
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Price</td>
+        </tr>
+        @foreach(var p in Model)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.ProductName</td>
+                <td>@p.Price</td>
+                <td><a href="~/Home/Buy/@p.Id">Buy</a></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
