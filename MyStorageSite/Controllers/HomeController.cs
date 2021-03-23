@@ -31,9 +31,9 @@ namespace MyStorageSite.Controllers
         {
             if (ModelState.IsValid)
             {
-                order.OrderDate = DateTime.Now;
-                context.Orders.Add(order);
-                context.SaveChanges();
+               // order.OrderDate = DateTime.Now;
+              //  context.Orders.Add(order);
+              //  context.SaveChanges();
                 return "OK";
             }
 
