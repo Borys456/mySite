@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<MyStorageSite.Models.Product>
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/Layout.cshtml";
 }
 <!doctype html>
 <html>
@@ -16,7 +16,7 @@
             <td>Name</td>
             <td>Price</td>
         </tr>
-        @foreach(var p in Model)
+        @foreach (var p in Model)
         {
             <tr>
                 <td>@p.Id</td>

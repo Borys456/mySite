@@ -10,8 +10,8 @@ using MyStorageSite;
 namespace MyStorageSite.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    [Migration("20210323095232_SetIdentInsert")]
-    partial class SetIdentInsert
+    [Migration("20210323195034_aaa")]
+    partial class aaa
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,9 +51,6 @@ namespace MyStorageSite.Migrations
 
                     b.Property<int?>("ProductsId")
                         .HasColumnType("int");
-
-                    b.Property<string>("User")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("contactPhone")
                         .HasColumnType("nvarchar(max)");

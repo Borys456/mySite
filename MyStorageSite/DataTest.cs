@@ -34,7 +34,7 @@ namespace MyStorageSite
                 var pr = new Product();
                 pr = storage.Products.Select(p => p).Where(p => p.Id == 1).First();
                 storage.Orders.Add(
-                    new Order { User = "Borys", Address = "Rogatyn", contactPhone = "+123456789123", OrderDate = DateTime.Now, Products = pr}
+                    new Order { Address = "Rogatyn", contactPhone = "+123456789123", OrderDate = DateTime.Now, Products = pr}
                     );
                 storage.SaveChanges();
             }

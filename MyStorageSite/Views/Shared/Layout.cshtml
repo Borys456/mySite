@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Layout</title>
+</head>
+<body>
+    <div>
+        <ul class="navbar">
+            <li>@Html.ActionLink("Products", "AllProducts", "Home")</li>
+            <li>@Html.ActionLink("Orders", "AllOrders", "Home")</li>
+            <li>@Html.ActionLink("Home", "_ViewStart", "MainPage")</li>
+        </ul>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <p>&copy; @DateTime.Now.ToShortDateString()</p>
+    </footer>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Shared/Layout.cshtml";
 }
 <!doctype html>
 <html>
@@ -10,19 +10,19 @@
 <body>
     <h1>Order</h1>
     <form method="post">
-        <input type="hidden" value="ViewBag.ProductId" name="ProductId">
+        <input type="hidden" value="@ViewBag.ProductId" name="Products.Id">
         <table>
             <tr>
                 <td>Name:</td>
-                <td><input type="Text" name="User" /></td>
+                <td><input type="text" name="User" /></td>
             </tr>
             <tr>
                 <td>Address:</td>
-                <td><input type="Text" name="Address" /></td>
+                <td><input type="text" name="Address" /></td>
             </tr>
             <tr>
                 <td>Phone:</td>
-                <td><input type="Text" name="contactPhone" /></td>
+                <td><input type="text" name="contactPhone" /></td>
             </tr>
             <tr><td><input type="submit" value="Send"></td></tr>
         </table>

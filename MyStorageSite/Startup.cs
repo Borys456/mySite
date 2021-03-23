@@ -24,8 +24,9 @@ namespace MyStorageSite
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<StorageContext>(o => o.UseSqlServer(connection));
+            services.AddRazorPages();
             services.AddMvc();
-            services.AddEntityFrameworkSqlServer();
+            //services.AddEntityFrameworkSqlServer();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -39,10 +40,24 @@ namespace MyStorageSite
 
             app.UseEndpoints(endpoints =>
             {
+                //endpoints.MapRazorPages();
+
+                //endpoints.MapControllerRoute(
+                //    name:"default",
+                //    pattern: "{controller=Home}/{action=AllProducts}/{id?}"
+                //    );
+
+                //endpoints.MapControllerRoute(
+                //    name: "default",
+                //    pattern: "{controller=Home}/{action=AllOrders}/{id?}"
+                //    );
+
                 endpoints.MapControllerRoute(
-                    name:"default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                    name: "default",
+                    pattern: "{controller=MainPage}/{action=_ViewStart}/{id?}"
                     );
+
+
             });
         }
     }

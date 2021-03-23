@@ -50,9 +50,6 @@ namespace MyStorageSite.Migrations
                     b.Property<int?>("ProductsId")
                         .HasColumnType("int");
 
-                    b.Property<string>("User")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("contactPhone")
                         .HasColumnType("nvarchar(max)");
 
