@@ -8,9 +8,9 @@ namespace MyStorageSite
 {
     public class DataTest
     {
-        public static void Initialize(StorageContext storage)
+        public static void Initialize(StorageContext1 storage)
         {
-            if(!storage.Products.Any())
+            if (!storage.Products.Any())
             {
                 storage.Products.AddRange(
                     new Product { ProductName = "Doll", Price = 500 },
@@ -19,7 +19,7 @@ namespace MyStorageSite
                 storage.SaveChanges();
             }
 
-            if(!storage.Categories.Any())
+            if (!storage.Categories.Any())
             {
                 var pr = new List<Product>();
                 pr.AddRange(storage.Products.ToList());
@@ -29,14 +29,14 @@ namespace MyStorageSite
                     );
                 storage.SaveChanges();
             }
-            if(!storage.Orders.Any())
+            if (!storage.Orders.Any())
             {
-                var pr = new Product();
-                pr = storage.Products.Select(p => p).Where(p => p.Id == 1).First();
-                storage.Orders.Add(
-                    new Order { Address = "Rogatyn", contactPhone = "+123456789123", OrderDate = DateTime.Now, Products = pr}
-                    );
-                storage.SaveChanges();
+                //var pr = new Product();
+                //pr = storage.Products.Select(p => p).Where(p => p.Id == 1).First();
+                //storage.Orders.Add(
+                //    new Order { Address = "Rogatyn", contactPhone = "+123456789123", OrderDate = DateTime.Now, Products = pr }
+                //    );
+                //storage.SaveChanges();
             }
         }
     }

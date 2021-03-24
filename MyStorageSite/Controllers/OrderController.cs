@@ -9,9 +9,9 @@ namespace MyStorageSite.Controllers
 {
     public class OrderController : Controller
     {
-        StorageContext context;
+        StorageContext1 context;
 
-        public OrderController(StorageContext context)
+        public OrderController(StorageContext1 context)
         {
             this.context = context;
         }
@@ -39,7 +39,7 @@ namespace MyStorageSite.Controllers
         {
             ViewBag.Order = id;
             Order order = context.Orders.Select(o => o).Where(o => o.Id == id).First();
-            return View();
+            return View(order);
         }
 
 
@@ -48,7 +48,7 @@ namespace MyStorageSite.Controllers
         {
             context.Orders.Update(order);
             context.SaveChanges();
-            return View();
+            return RedirectToAction("AllOrders", "Home");
         }
 
     }

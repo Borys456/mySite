@@ -7,13 +7,14 @@ using MyStorageSite.Models;
 
 namespace MyStorageSite
 {
-    public class StorageContext : DbContext
+    public class StorageContext1 : DbContext
     {
-        public StorageContext(DbContextOptions<StorageContext> options) : base(options)
+        public StorageContext1(DbContextOptions<StorageContext1> options) : base(options)
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Category> Categories { get; set; }

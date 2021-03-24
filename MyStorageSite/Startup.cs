@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using MyStorageSite.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore.Proxies;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace MyStorageSite
 {
@@ -26,8 +27,9 @@ namespace MyStorageSite
             //string connection = Configuration.GetConnectionString("DefaultConnection");
             //services.AddDbContext<StorageContext>(o => o.UseSqlServer(connection));
 
-            services.AddDbContext<StorageContext>(o => o.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<StorageContext1>(o => o.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(o => { o.LoginPath = new PathString("/Acount/Login"); });
             services.AddRazorPages();
             services.AddMvc();
             //services.AddEntityFrameworkSqlServer();
@@ -41,27 +43,14 @@ namespace MyStorageSite
             }
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapRazorPages();
-
-                //endpoints.MapControllerRoute(
-                //    name:"default",
-                //    pattern: "{controller=Home}/{action=AllProducts}/{id?}"
-                //    );
-
-                //endpoints.MapControllerRoute(
-                //    name: "default",
-                //    pattern: "{controller=Home}/{action=AllOrders}/{id?}"
-                //    );
-
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=MainPage}/{action=_ViewStart}/{id?}"
                     );
-
-
             });
         }
     }

@@ -16,17 +16,20 @@
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Address" class="control-label">Adress</label>
-                <input asp-for="Address" name="AddRess"  class="form-control" />
+                <!--<input asp-for="Address" name="AddRess"  class="form-control" />-->
+                @Html.EditorFor(m => m.Address)
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="contactPhone" class="control-label">Phone</label>
-                <input asp-for="contactPhone"  name="contactPhone"  class="form-control" />
+                <!--<input asp-for="contactPhone"  name="contactPhone"  class="form-control" />-->
+                @Html.EditorFor(m => m.contactPhone)
                 <span asp-validation-for="contactPhone" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="OrderDate" class="control-label">Data</label>
-                <input asp-for="OrderDate" name="orderDate"  class="form-control" />
+                <!--<input asp-for="OrderDate" name="orderDate"  class="form-control" />-->
+                @Html.EditorFor(m => m.OrderDate)
                 <span asp-validation-for="OrderDate" class="text-danger"></span>
             </div>
             <div class="form-group">

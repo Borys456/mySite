@@ -9,9 +9,9 @@ namespace MyStorageSite.Controllers
 {
     public class HomeController : Controller
     {
-        StorageContext context;
+        StorageContext1 context;
         //int? pr_id = null;
-        public HomeController(StorageContext context)
+        public HomeController(StorageContext1 context)
         {
             this.context = context;
         }

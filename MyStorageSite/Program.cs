@@ -20,7 +20,7 @@ namespace MyStorageSite
                 var services = s.ServiceProvider;
                 try
                 {
-                    var con = services.GetRequiredService<StorageContext>();
+                    var con = services.GetRequiredService<StorageContext1>();
                     DataTest.Initialize(con);
                 }
                 catch (Exception ex)
