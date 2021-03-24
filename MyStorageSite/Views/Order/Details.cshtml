@@ -1,4 +1,5 @@
 ﻿@model MyStorageSite.Models.Order
+@*@model MyStorageSite.Models.Product*@
 
 @{
     ViewData["Title"] = "Details";
@@ -9,35 +10,20 @@
 
 <div>
     <h4>Order</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.contactPhone)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.contactPhone)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Products.ProductName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Products.ProductName)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+    <table class="table">
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Address)</td>
+            <td>@Html.DisplayNameFor(model => model.contactPhone)</td>
+            <td>@Html.DisplayNameFor(model => model.OrderDate)</td>
+            <td>@Html.DisplayNameFor(model => model.Products.ProductName)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(model => model.Address)</td>
+            <td>@Html.DisplayFor(model => model.contactPhone)</td>
+            <td>@Html.DisplayFor(model => model.OrderDate)</td>
+            <td>@Html.DisplayFor(model => model.Products.ProductName)</td>
+        </tr>
+    </table>
+    <a href="~/Order/EditOrder/@Model.Id">Edit</a>
 </div>

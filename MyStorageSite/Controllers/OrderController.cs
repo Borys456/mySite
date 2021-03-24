@@ -26,10 +26,30 @@ namespace MyStorageSite.Controllers
             ViewBag.Order = id;
             
             Order ord = context.Orders.Select(o => o).Where(o => o.Id == id).First();
-            Product product = context.Products.Select(p => p).Where(p => p.Id == ord.Products.Id).FirstOrDefault();
-            ord.Products = product;
+            //Product product = context.Products.Select(p => p).Where(p => p == ord.Products).FirstOrDefault();
+            //ord.Products = product;
 
+            //Product product = context.Products.Select(p => p).Where(p => p.Id == ord)
+                
             return View(ord);
         }
+
+        [HttpGet]
+        public IActionResult EditOrder(int? id)
+        {
+            ViewBag.Order = id;
+            Order order = context.Orders.Select(o => o).Where(o => o.Id == id).First();
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult EditOrder(Order order)
+        {
+            context.Orders.Update(order);
+            context.SaveChanges();
+            return View();
+        }
+
     }
 }

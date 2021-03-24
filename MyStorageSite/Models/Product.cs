@@ -11,7 +11,7 @@ namespace MyStorageSite.Models
         public string ProductName { get; set; }
         public int Price { get; set; }
 
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
         //public Order Order { get; set; }
     }
 }

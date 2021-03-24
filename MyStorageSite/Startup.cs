@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using MyStorageSite.Models;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore.Proxies;
 
 namespace MyStorageSite
 {
@@ -22,8 +23,11 @@ namespace MyStorageSite
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<StorageContext>(o => o.UseSqlServer(connection));
+            //string connection = Configuration.GetConnectionString("DefaultConnection");
+            //services.AddDbContext<StorageContext>(o => o.UseSqlServer(connection));
+
+            services.AddDbContext<StorageContext>(o => o.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddRazorPages();
             services.AddMvc();
             //services.AddEntityFrameworkSqlServer();

@@ -14,6 +14,6 @@ namespace MyStorageSite.Models
         public string Address { get; set; }
         public string contactPhone { get; set; }
         public DateTime OrderDate { get; set; }
-        public Product Products { get; set; }
+        public virtual Product Products { get; set; }
     }
 }
