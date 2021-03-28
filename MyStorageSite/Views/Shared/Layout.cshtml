@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -24,6 +25,11 @@
         @Html.ActionLink("Register", "Register", "Acount")
         @Html.ActionLink("Login", "Login", "Acount")
     </nav>
+    <div>
+       <form method="post" asp-controller="Acount" aspcontroller="Logout">
+           <input type="submit" value="Logout">
+       </form>
+    </div>
     <div>
         @RenderBody()
     </div>

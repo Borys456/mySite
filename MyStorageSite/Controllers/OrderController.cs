@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MyStorageSite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MyStorageSite.Controllers
 {
@@ -34,6 +35,7 @@ namespace MyStorageSite.Controllers
             return View(ord);
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult EditOrder(int? id)
         {
@@ -42,7 +44,7 @@ namespace MyStorageSite.Controllers
             return View(order);
         }
 
-
+        [Authorize]
         [HttpPost]
         public IActionResult EditOrder(Order order)
         {

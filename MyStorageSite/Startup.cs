@@ -44,6 +44,7 @@ namespace MyStorageSite
 
             app.UseRouting();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
