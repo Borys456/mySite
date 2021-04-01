@@ -23,13 +23,18 @@
         @Html.ActionLink("Orders", "AllOrders", "Home")
         @Html.ActionLink("Home", "_ViewStart", "MainPage")
         @Html.ActionLink("Register", "Register", "Acount")
-        @Html.ActionLink("Login", "Login", "Acount")
+        @Html.ActionLink("AllU", "AllUsers", "Admin")
+        <a href="~/Profile/ProfileUser/@User.Identity.Name">Profile</a>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>@User.Identity.Name</p>
+            @Html.ActionLink("Logout", "Logout", "Acount")
+        }
+        else
+        {
+            @Html.ActionLink("Login", "Login", "Acount")
+        }
     </nav>
-    <div>
-       <form method="post" asp-controller="Acount" aspcontroller="Logout">
-           <input type="submit" value="Logout">
-       </form>
-    </div>
     <div>
         @RenderBody()
     </div>

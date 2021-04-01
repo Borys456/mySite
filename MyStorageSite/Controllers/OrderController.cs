@@ -23,15 +23,9 @@ namespace MyStorageSite.Controllers
         {
             if (id == null)
                 return RedirectToAction("AllOrders");
-
-            ViewBag.Order = id;
             
             Order ord = context.Orders.Select(o => o).Where(o => o.Id == id).First();
-            //Product product = context.Products.Select(p => p).Where(p => p == ord.Products).FirstOrDefault();
-            //ord.Products = product;
-
-            //Product product = context.Products.Select(p => p).Where(p => p.Id == ord)
-                
+            //Product product = context.Products.Select(p => p).Where(p => p.Id == ord)                
             return View(ord);
         }
 
@@ -43,9 +37,9 @@ namespace MyStorageSite.Controllers
             Order order = context.Orders.Select(o => o).Where(o => o.Id == id).First();
             return View(order);
         }
-
-        [Authorize]
+     
         [HttpPost]
+        [Authorize]
         public IActionResult EditOrder(Order order)
         {
             context.Orders.Update(order);

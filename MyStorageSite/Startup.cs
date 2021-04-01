@@ -12,6 +12,9 @@ using MyStorageSite.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore.Proxies;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using MyStorageSite.Data;
 
 namespace MyStorageSite
 {
@@ -30,6 +33,8 @@ namespace MyStorageSite
             services.AddDbContext<StorageContext1>(o => o.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(o => { o.LoginPath = new PathString("/Acount/Login"); });
+            services.AddIdentity<IdentityUser, IdentityRole>(o => o.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<UserContext>();
+
             services.AddRazorPages();
             services.AddMvc();
             //services.AddEntityFrameworkSqlServer();
